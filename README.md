@@ -38,20 +38,22 @@ Thresholds were fixed in `cases/*.json` before running: retain needs a median
 same-tree speedup **≥ 1.30x**, and the decision envelope needs **≥ 1.00x** on
 every scenario that exercises the changed code.
 
-| PR | claimed | same-tree median | worst decision scenario | verdict |
+| PR | claimed | same-tree median | reported worst case | verdict |
 | --- | --- | --- | --- | --- |
 | [python-attrs/attrs#1660](https://github.com/python-attrs/attrs/pull/1660) | 1.98x | **1.1386x** | 1.1264x | **RETRACT** |
 | [kiorky/croniter#298](https://github.com/kiorky/croniter/pull/298) | — | **2.2768x** | 1.7158x | **RETAIN** |
-| [stefankoegl/python-json-patch#274](https://github.com/stefankoegl/python-json-patch/pull/274) | 1.33x | **1.0437x** | 1.0348x † | **RETRACT** |
+| [stefankoegl/python-json-patch#274](https://github.com/stefankoegl/python-json-patch/pull/274) | 1.33x | **1.0437x** | 0.9927x † | **RETRACT** |
 
-† `jsonpatch-274` also reports one **control** scenario (`patch_serialize`) at
-0.9927x.  The patch cannot affect that path — it just serialises an already-built
-patch — so it is pure noise on an untouched code path.  The committed report is
-*conservative*: it still counts the control in the envelope and therefore lists
-0.9927x as the overall worst case.  The tool supports excluding controls via
-`bench.control_scenarios` (see `split_controls` in `src/sametree_recheck/stats.py`);
-the report was left un-re-run so the verdict is the stricter of the two.  Either
-way the verdict is RETRACT, driven by the median (1.0437x < 1.30x).
+† `jsonpatch-274` reports one **control** scenario (`patch_serialize`) at 0.9927x.  The
+patch cannot affect that path — it only serialises an already-built patch — so it is
+pure noise on untouched code.  The committed report is *conservative*: it was produced
+before control support existed, so it counts the control in both the median (1.0437x)
+and the envelope (0.9927x).  The three decision-path scenarios are
+1.0348x / 1.0526x / 1.0655x, i.e. even excluding the control the median is 1.0526x,
+still far below the 1.30x bar.  The verdict is RETRACT under either convention.
+The tool now supports excluding controls via `bench.control_scenarios`
+(`split_controls` in `src/sametree_recheck/stats.py`, covered by `tests/test_controls.py`);
+the report was deliberately not re-run, so the stricter number stands.
 
 ### attrs #1660 — the headline 1.98x is a nested-only result
 
@@ -101,7 +103,7 @@ PYTHONPATH=src /tmp/stv/bin/python -m sametree_recheck run \
   --case cases/attrs-1660.json --out-dir reports --python /tmp/stv/bin/python
 
 # 3. reproduce all three reports at once
-PYTHON=$${PYTHON:-/tmp/stv/bin/python} bash scripts/run_all.sh
+PYTHON=/tmp/stv/bin/python bash scripts/run_all.sh
 
 # the tool's own tests
 PYTHONPATH=src /tmp/stv/bin/python -m pytest tests -q
@@ -125,7 +127,7 @@ PYTHONPATH=src /tmp/stv/bin/python -m sametree_recheck certificate \
 | G1 | upstream test suite green in pristine **and** patched tree | `tests.command` in each `cases/*.json` | 3/3 green in both trees |
 | G2 | same-tree certificate: `heads_equal`, pristine clean, per-touched-file dual sha256 | `certificate` subcommand / `evidence` in each report | 3/3 pass, 1 changed file each |
 | G3 | median same-tree speedup ≥ 1.30x | `verdict` in each report | croniter pass; attrs 1.1386x, json-patch 1.0437x fail |
-| G4 | every decision scenario ≥ 1.00x | `verdict` in each report | attrs 1.1264x pass; croniter 1.7158x pass; json-patch decision min 1.0348x pass |
+| G4 | every scenario ≥ 1.00x | `verdict` in each report | attrs 1.1264x pass; croniter 1.7158x pass; json-patch reported worst 0.9927x fail (control-only; decision-path min 1.0348x) |
 | — | peak RSS | **not measured this round** — this product's gate is the same-tree certificate, not the `-opt-lab` RSS gate | n/a |
 
 No number in this README was predicted; every one is read back from
@@ -140,8 +142,9 @@ No number in this README was predicted; every one is read back from
   Every raw per-round sample is committed under `reports/*.raw.jsonl`.
 - Determinism: `croniter` cases use a fixed base datetime; `attrs` cases build
   fixed objects; the `jsonpatch` graph case uses `random.Random(1042)`.
-- Relative standard deviation was ≤ 5.5 % on every scenario that entered a
-  verdict; the medians, not the means, drive the ratios.
+- Relative standard deviation was ≤ 5.9 % on every scenario that entered a
+  verdict (the worst is `prev_5min_datetime`'s baseline at 5.9 %); the medians,
+  not the means, drive the ratios.
 - Only one interpreter (3.12.3) exists on this machine, so no cross-version
   matrix was produced.
 
