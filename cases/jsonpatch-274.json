@@ -10,8 +10,10 @@
     "warmup": 3,
     "reps": 7,
     "timeout": 300,
-    "env": {"PYTHONPATH": "."}
+    "env": {"PYTHONPATH": "."},
+    "control_scenarios": ["patch_serialize"]
   },
+  "control_bias_limit": 0.05,
   "tests": {
     "command": ["{python}", "-m", "pytest", "tests.py", "-q", "-p", "no:cacheprovider"],
     "env": {"PYTHONPATH": "."},

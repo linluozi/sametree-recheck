@@ -72,6 +72,18 @@ def split_controls(speedups, control_names):
     return decision, observed
 
 
+def control_bias(control_speedups):
+    """Largest deviation from 1.0x among control scenarios.
+
+    A control does not touch the changed code, so its true speedup is 1.0x.  Any
+    observed deviation is per-process timing bias.  When that bias is large the
+    run cannot resolve a small effect and must not yield a verdict.
+    """
+    if not control_speedups:
+        return 0.0
+    return max(abs(float(v) - 1.0) for v in control_speedups.values())
+
+
 def decide(scenario_speedups, base_tests, patched_tests, retain_median_gte, worst_case_gte):
     """Apply the documented rule and return a structured decision.
 

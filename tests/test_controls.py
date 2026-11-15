@@ -1,6 +1,6 @@
 import pytest
 
-from sametree_recheck.stats import split_controls
+from sametree_recheck.stats import control_bias, split_controls
 
 
 def test_split_controls_keeps_controls_out_of_the_decision_set():
@@ -21,3 +21,13 @@ def test_split_controls_ignores_unknown_control_names():
     decision, control = split_controls({"a": 1.0}, ["missing"])
     assert decision == {"a": 1.0}
     assert control == {}
+
+
+def test_control_bias_is_zero_without_controls():
+    assert control_bias({}) == 0.0
+
+
+def test_control_bias_is_the_largest_deviation_from_one():
+    assert control_bias({"c": 1.04}) == pytest.approx(0.04)
+    assert control_bias({"c": 1.45, "d": 0.93}) == pytest.approx(0.45)
+

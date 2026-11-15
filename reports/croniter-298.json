@@ -1,18 +1,20 @@
 {
   "bench": {
+    "control_scenarios": [],
+    "control_speedups": {},
     "executable": "/tmp/stv/bin/python",
     "iters": {
       "patched": {
-        "next_15sec_datetime": 9284,
-        "next_5min_datetime": 7041,
-        "next_5min_float": 3828,
-        "prev_5min_datetime": 4873
+        "next_15sec_datetime": 8884,
+        "next_5min_datetime": 7024,
+        "next_5min_float": 3999,
+        "prev_5min_datetime": 4885
       },
       "pristine": {
-        "next_15sec_datetime": 5764,
-        "next_5min_datetime": 3730,
-        "next_5min_float": 1897,
-        "prev_5min_datetime": 3537
+        "next_15sec_datetime": 5983,
+        "next_5min_datetime": 3750,
+        "next_5min_float": 1828,
+        "prev_5min_datetime": 3634
       }
     },
     "python": "3.12.3",
@@ -20,95 +22,99 @@
     "scenarios": {
       "next_15sec_datetime": {
         "baseline": {
-          "max_seconds": 2.009924539958827e-05,
-          "mean_seconds": 1.979692144495025e-05,
-          "median_seconds": 1.9754650553405326e-05,
-          "min_seconds": 1.953579184885533e-05,
+          "max_seconds": 2.0252401546234074e-05,
+          "mean_seconds": 1.9756991773169885e-05,
+          "median_seconds": 1.9646025092012406e-05,
+          "min_seconds": 1.9544470148074194e-05,
           "n": 7,
-          "p25_seconds": 1.9618931212213657e-05,
-          "p75_seconds": 1.9975449944187748e-05,
-          "relative_stdev": 0.011210329932380412
+          "p25_seconds": 1.9558847197098775e-05,
+          "p75_seconds": 1.9869175615835485e-05,
+          "relative_stdev": 0.013257799280303144
         },
+        "control": false,
         "patched": {
-          "max_seconds": 1.1596745839089682e-05,
-          "mean_seconds": 1.1515071895999595e-05,
-          "median_seconds": 1.1513553975484639e-05,
-          "min_seconds": 1.1431628184931539e-05,
+          "max_seconds": 1.187449994587995e-05,
+          "mean_seconds": 1.1400422969722914e-05,
+          "median_seconds": 1.1298822877255177e-05,
+          "min_seconds": 1.1274094921056616e-05,
           "n": 7,
-          "p25_seconds": 1.1481562533441135e-05,
-          "p75_seconds": 1.1550225102804514e-05,
-          "relative_stdev": 0.005000757210259543
+          "p25_seconds": 1.1287415171614883e-05,
+          "p75_seconds": 1.1390356350319442e-05,
+          "relative_stdev": 0.01911541982426563
         },
-        "speedup": 1.7157734784123244
+        "speedup": 1.73876741899905
       },
       "next_5min_datetime": {
         "baseline": {
-          "max_seconds": 4.170674745782451e-05,
-          "mean_seconds": 4.0656668128683304e-05,
-          "median_seconds": 4.0502110171573734e-05,
-          "min_seconds": 3.994186121680781e-05,
+          "max_seconds": 4.3375141173601154e-05,
+          "mean_seconds": 4.1268999271449595e-05,
+          "median_seconds": 4.082745313644409e-05,
+          "min_seconds": 3.972771639625231e-05,
           "n": 7,
-          "p25_seconds": 4.042883555906707e-05,
-          "p75_seconds": 4.079414346822145e-05,
-          "relative_stdev": 0.013400746015126476
+          "p25_seconds": 4.00486687819163e-05,
+          "p75_seconds": 4.2427673315008477e-05,
+          "relative_stdev": 0.036349610608039463
         },
+        "control": false,
         "patched": {
-          "max_seconds": 1.8513146795818133e-05,
-          "mean_seconds": 1.7766864886012888e-05,
-          "median_seconds": 1.7681040034859954e-05,
-          "min_seconds": 1.73652013151369e-05,
+          "max_seconds": 1.953065645687944e-05,
+          "mean_seconds": 1.7791050331702828e-05,
+          "median_seconds": 1.7501487410446982e-05,
+          "min_seconds": 1.7201015089292734e-05,
           "n": 7,
-          "p25_seconds": 1.7666112022582078e-05,
-          "p75_seconds": 1.773822100555553e-05,
-          "relative_stdev": 0.019882240277556296
+          "p25_seconds": 1.729719867454608e-05,
+          "p75_seconds": 1.7854898008104234e-05,
+          "relative_stdev": 0.045694180682513
         },
-        "speedup": 2.290708583415893
+        "speedup": 2.332799046101269
       },
       "next_5min_float": {
         "baseline": {
-          "max_seconds": 4.070850936563378e-05,
-          "mean_seconds": 4.054032551168596e-05,
-          "median_seconds": 4.050352806534714e-05,
-          "min_seconds": 4.0384548047089113e-05,
+          "max_seconds": 4.147741529903083e-05,
+          "mean_seconds": 4.0024761841278704e-05,
+          "median_seconds": 3.9737273203270177e-05,
+          "min_seconds": 3.9479276980528166e-05,
           "n": 7,
-          "p25_seconds": 4.0483870383982415e-05,
-          "p75_seconds": 4.060897616788344e-05,
-          "relative_stdev": 0.0028146912617608706
+          "p25_seconds": 3.961214762083224e-05,
+          "p75_seconds": 4.0127536082228634e-05,
+          "relative_stdev": 0.017393661103740184
         },
+        "control": false,
         "patched": {
-          "max_seconds": 1.770604422263404e-05,
-          "mean_seconds": 1.7588569571774722e-05,
-          "median_seconds": 1.757643248811909e-05,
-          "min_seconds": 1.7470368276600303e-05,
+          "max_seconds": 1.8137742824168705e-05,
+          "mean_seconds": 1.7468536169042723e-05,
+          "median_seconds": 1.739726871602325e-05,
+          "min_seconds": 1.717390826521113e-05,
           "n": 7,
-          "p25_seconds": 1.7549921301083567e-05,
-          "p75_seconds": 1.763364970645125e-05,
-          "relative_stdev": 0.004393501487162341
+          "p25_seconds": 1.7300973594874317e-05,
+          "p75_seconds": 1.7484443094073667e-05,
+          "relative_stdev": 0.01841065244535731
         },
-        "speedup": 2.3044225893238446
+        "speedup": 2.2841098710323027
       },
       "prev_5min_datetime": {
         "baseline": {
-          "max_seconds": 4.533757601783273e-05,
-          "mean_seconds": 4.0045426084551925e-05,
-          "median_seconds": 3.905293755791502e-05,
-          "min_seconds": 3.879226703098813e-05,
+          "max_seconds": 4.321682647723514e-05,
+          "mean_seconds": 4.045255958878147e-05,
+          "median_seconds": 3.9555419935554215e-05,
+          "min_seconds": 3.88737779211132e-05,
           "n": 7,
-          "p25_seconds": 3.893971643290817e-05,
-          "p75_seconds": 3.962788455965562e-05,
-          "relative_stdev": 0.05911142871765181
+          "p25_seconds": 3.925465233418957e-05,
+          "p75_seconds": 4.150629405959432e-05,
+          "relative_stdev": 0.04414026283200674
         },
+        "control": false,
         "patched": {
-          "max_seconds": 1.726748692030391e-05,
-          "mean_seconds": 1.7256588526800738e-05,
-          "median_seconds": 1.7258636011263684e-05,
-          "min_seconds": 1.724503923680732e-05,
+          "max_seconds": 1.7268934354811388e-05,
+          "mean_seconds": 1.7040835194794088e-05,
+          "median_seconds": 1.7075609137421376e-05,
+          "min_seconds": 1.6799497445749773e-05,
           "n": 7,
-          "p25_seconds": 1.7251031484363898e-05,
-          "p75_seconds": 1.726144727525123e-05,
-          "relative_stdev": 0.0004622336866781783
+          "p25_seconds": 1.6920679194534325e-05,
+          "p75_seconds": 1.7150223518253714e-05,
+          "relative_stdev": 0.009788490416902756
         },
-        "speedup": 2.2628055619475083
+        "speedup": 2.3164866106514523
       }
     },
     "script": "../benches/croniter_298_bench.py",
@@ -140,7 +146,7 @@
     }
   },
   "evidence_sha256": "af54870f78c6b3039048d86bf4043f6d6dc39748f91c5c6287fbc0e23555c3a5",
-  "median_speedup": 2.2767570726817006,
+  "median_speedup": 2.3002982408418777,
   "pr": 298,
   "replay_certificate": "96facbb184c6bc958c5ea26b88ef15e09657c4a9ddb606dcaba0184a40208db3",
   "schema": "sametree-report/1",
@@ -149,13 +155,13 @@
       "command": "/tmp/stv/bin/python -m pytest src/croniter/tests/test_croniter.py -q -p no:cacheprovider",
       "passed": true,
       "returncode": 0,
-      "summary": "179 passed, 870 subtests passed in 1.09s"
+      "summary": "179 passed, 870 subtests passed in 1.08s"
     },
     "pristine": {
       "command": "/tmp/stv/bin/python -m pytest src/croniter/tests/test_croniter.py -q -p no:cacheprovider",
       "passed": true,
       "returncode": 0,
-      "summary": "179 passed, 870 subtests passed in 1.53s"
+      "summary": "179 passed, 870 subtests passed in 1.19s"
     }
   },
   "thresholds": {
@@ -166,7 +172,7 @@
   "upstream": "kiorky/croniter",
   "verdict": "RETAIN",
   "verdict_reasons": [
-    "median 2.2768x >= 1.30x and worst 1.7158x >= 1.00x"
+    "median 2.3003x >= 1.30x and worst 1.7388x >= 1.00x"
   ],
-  "worst_case_speedup": 1.7157734784123244
+  "worst_case_speedup": 1.73876741899905
 }

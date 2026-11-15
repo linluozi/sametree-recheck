@@ -22,6 +22,6 @@
   "claim": {
     "speedup": 1.98,
     "source": "PR #1660 body table",
-    "note": "the 1.98x headline was a cross-tree comparison (PyPI wheel vs git HEAD), not a same-tree one"
+    "note": "same-tree recheck: the headline only reproduces on the deeply nested attrs shape (1.89x); the flat/wide shapes that dominate ordinary asdict use are 1.13x, so the three-shape median is 1.14x"
   }
 }

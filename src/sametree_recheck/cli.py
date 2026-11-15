@@ -10,7 +10,7 @@ import tempfile
 
 from . import __version__
 from .runner import run_bench, run_tests
-from .stats import decide, speedup, split_controls, summarize
+from .stats import control_bias, decide, speedup, split_controls, summarize
 from .trees import (
     TreeError,
     canonical_sha256,
@@ -119,6 +119,8 @@ def cmd_run(args):
             }
         speedups = {name: scenarios[name]["speedup"] for name in names}
         decision_speedups, control_speedups = split_controls(speedups, controls)
+        bias = control_bias(control_speedups)
+        bias_limit = float(case.get("control_bias_limit", 0.10))
         decision = decide(
             decision_speedups,
             base_tests,
@@ -126,6 +128,13 @@ def cmd_run(args):
             float(case["retain_median_gte"]),
             float(case["worst_case_gte"]),
         )
+        if bias > bias_limit and decision["verdict"] != "INCONCLUSIVE":
+            decision["verdict"] = "INCONCLUSIVE"
+            decision["reasons"].append(
+                "control scenario deviates %.1f%% from 1.0x (> %.0f%% limit): "
+                "per-process timing bias, effect not resolvable"
+                % (bias * 100.0, bias_limit * 100.0)
+            )
 
     replay_certificate = canonical_sha256(
         {
@@ -164,6 +173,8 @@ def cmd_run(args):
             "script": os.path.relpath(resolve(case_path, bench_spec["script"]), os.path.dirname(case_path)),
             "control_scenarios": controls,
             "control_speedups": control_speedups,
+            "control_bias": bias,
+            "control_bias_limit": bias_limit,
             "iters": {"pristine": base_bench.get("iters"), "patched": patched_bench.get("iters")},
             "python": base_bench.get("meta", {}).get("python"),
             "executable": base_bench.get("meta", {}).get("executable"),

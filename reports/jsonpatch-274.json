@@ -1,18 +1,26 @@
 {
   "bench": {
+    "control_bias": 0.02363479932854673,
+    "control_bias_limit": 0.1,
+    "control_scenarios": [
+      "patch_serialize"
+    ],
+    "control_speedups": {
+      "patch_serialize": 0.9763652006714533
+    },
     "executable": "/tmp/stv/bin/python",
     "iters": {
       "patched": {
-        "from_diff_graph": 346,
-        "from_diff_primitive": 1229,
-        "make_patch_graph": 532,
-        "patch_serialize": 12618
+        "from_diff_graph": 217,
+        "from_diff_primitive": 751,
+        "make_patch_graph": 275,
+        "patch_serialize": 9757
       },
       "pristine": {
-        "from_diff_graph": 320,
-        "from_diff_primitive": 1228,
-        "make_patch_graph": 509,
-        "patch_serialize": 12828
+        "from_diff_graph": 345,
+        "from_diff_primitive": 1173,
+        "make_patch_graph": 477,
+        "patch_serialize": 10046
       }
     },
     "python": "3.12.3",
@@ -20,95 +28,99 @@
     "scenarios": {
       "from_diff_graph": {
         "baseline": {
-          "max_seconds": 0.00045769691932946445,
-          "mean_seconds": 0.00041328058411766377,
-          "median_seconds": 0.00040120409394148735,
-          "min_seconds": 0.00039707683608867226,
+          "max_seconds": 0.0004076415159996005,
+          "mean_seconds": 0.00040009232935944944,
+          "median_seconds": 0.0003996982333668764,
+          "min_seconds": 0.00039699039003555323,
           "n": 7,
-          "p25_seconds": 0.00039921303978189825,
-          "p75_seconds": 0.0004192800799501129,
-          "relative_stdev": 0.05416583728141402
+          "p25_seconds": 0.0003972538733395977,
+          "p75_seconds": 0.0004009042097174603,
+          "relative_stdev": 0.00937259849217181
         },
+        "control": false,
         "patched": {
-          "max_seconds": 0.00041610958603765234,
-          "mean_seconds": 0.0003920723526476337,
-          "median_seconds": 0.0003876984280916308,
-          "min_seconds": 0.00037924030181989507,
+          "max_seconds": 0.0006768212520650455,
+          "mean_seconds": 0.0006706364639226036,
+          "median_seconds": 0.0006699911297260342,
+          "min_seconds": 0.0006671019181746492,
           "n": 7,
-          "p25_seconds": 0.0003862697294660214,
-          "p75_seconds": 0.00039445934682610755,
-          "relative_stdev": 0.030219047846651043
+          "p25_seconds": 0.0006679482135732877,
+          "p75_seconds": 0.0006723222601729604,
+          "relative_stdev": 0.005268826198833874
         },
-        "speedup": 1.0348354929276746
+        "speedup": 0.5965724255637785
       },
       "from_diff_primitive": {
         "baseline": {
-          "max_seconds": 0.0001083237599848439,
-          "mean_seconds": 0.0001073553089941724,
-          "median_seconds": 0.00010750123530213724,
-          "min_seconds": 0.0001066344523201742,
+          "max_seconds": 0.00014320626467440948,
+          "mean_seconds": 0.00011409032963295249,
+          "median_seconds": 0.00010764942951468657,
+          "min_seconds": 0.00010597542045798347,
           "n": 7,
-          "p25_seconds": 0.00010684943994573934,
-          "p75_seconds": 0.00010766441773028637,
-          "relative_stdev": 0.005630187678276174
+          "p25_seconds": 0.00010658937203876502,
+          "p75_seconds": 0.00011431122435302888,
+          "relative_stdev": 0.12098548261483809
         },
+        "control": false,
         "patched": {
-          "max_seconds": 0.00010289980342613186,
-          "mean_seconds": 0.00010093527518132253,
-          "median_seconds": 0.00010088878169207188,
-          "min_seconds": 9.98785672292562e-05,
+          "max_seconds": 0.00014446914994645213,
+          "mean_seconds": 0.0001393510280285064,
+          "median_seconds": 0.0001384427215402993,
+          "min_seconds": 0.00013789851664901574,
           "n": 7,
-          "p25_seconds": 0.00010019669572969002,
-          "p75_seconds": 0.00010124319123120887,
-          "relative_stdev": 0.010347412311329202
+          "p25_seconds": 0.0001381258678668428,
+          "p75_seconds": 0.00013919753616504598,
+          "relative_stdev": 0.01667222986175091
         },
-        "speedup": 1.0655420107088576
+        "speedup": 0.7775737743161231
       },
       "make_patch_graph": {
         "baseline": {
-          "max_seconds": 0.00040374914356205456,
-          "mean_seconds": 0.0004021240149447164,
-          "median_seconds": 0.00040290059342482705,
-          "min_seconds": 0.0003999734008300515,
+          "max_seconds": 0.0004030943397174841,
+          "mean_seconds": 0.00039831310227250006,
+          "median_seconds": 0.0003977606006638309,
+          "min_seconds": 0.0003957451600386162,
           "n": 7,
-          "p25_seconds": 0.0004011423186141053,
-          "p75_seconds": 0.00040298016478393546,
-          "relative_stdev": 0.0034434741386261875
+          "p25_seconds": 0.0003972512892441555,
+          "p75_seconds": 0.0003985445184996293,
+          "relative_stdev": 0.005916441124995114
         },
+        "control": false,
         "patched": {
-          "max_seconds": 0.00039166058553732875,
-          "mean_seconds": 0.0003839787003253091,
-          "median_seconds": 0.0003827763861395363,
-          "min_seconds": 0.0003804534102993128,
+          "max_seconds": 0.0006981076842004603,
+          "mean_seconds": 0.0006728253479708325,
+          "median_seconds": 0.0006687676872719417,
+          "min_seconds": 0.0006661341542547399,
           "n": 7,
-          "p25_seconds": 0.000382073199082362,
-          "p75_seconds": 0.00038440706106813104,
-          "relative_stdev": 0.009599590422003593
+          "p25_seconds": 0.0006675925173542717,
+          "p75_seconds": 0.000670791437680071,
+          "relative_stdev": 0.016811202405347433
         },
-        "speedup": 1.05257431757547
+        "speedup": 0.5947664760634421
       },
       "patch_serialize": {
         "baseline": {
-          "max_seconds": 3.229726136711144e-06,
-          "mean_seconds": 3.208556262724564e-06,
-          "median_seconds": 3.2142744439392397e-06,
-          "min_seconds": 3.1669256063936133e-06,
+          "max_seconds": 4.625451298092742e-06,
+          "mean_seconds": 4.599295956080815e-06,
+          "median_seconds": 4.594043496474787e-06,
+          "min_seconds": 4.5842310499378395e-06,
           "n": 7,
-          "p25_seconds": 3.2072871288044785e-06,
-          "p75_seconds": 3.2171966972094963e-06,
-          "relative_stdev": 0.006225369733541395
+          "p25_seconds": 4.58673628541416e-06,
+          "p75_seconds": 4.608936638616006e-06,
+          "relative_stdev": 0.0037654167266511166
         },
+        "control": true,
         "patched": {
-          "max_seconds": 3.258207006024793e-06,
-          "mean_seconds": 3.2389116547579155e-06,
-          "median_seconds": 3.2378216110964663e-06,
-          "min_seconds": 3.226942821621498e-06,
+          "max_seconds": 4.957536493362285e-06,
+          "mean_seconds": 4.7423476074705e-06,
+          "median_seconds": 4.705251163514872e-06,
+          "min_seconds": 4.653520332327678e-06,
           "n": 7,
-          "p25_seconds": 3.2308410096161907e-06,
-          "p75_seconds": 3.243864062665136e-06,
-          "relative_stdev": 0.0033706885488117436
+          "p25_seconds": 4.700147693346206e-06,
+          "p75_seconds": 4.739914938198124e-06,
+          "relative_stdev": 0.02094011841136807
         },
-        "speedup": 0.9927274661838913
+        "speedup": 0.9763652006714533
       }
     },
     "script": "../benches/jsonpatch_274_bench.py",
@@ -140,7 +152,7 @@
     }
   },
   "evidence_sha256": "eba3cfbeae6566b8564c162b8f5661c72f77f4aca7a11efcff31871216cd5587",
-  "median_speedup": 1.0437049052515723,
+  "median_speedup": 0.5965724255637785,
   "pr": 274,
   "replay_certificate": "1b0b511684e66ed162e73e659122ca4fc8395567fc7d1f3301ca0434e8fff03f",
   "schema": "sametree-report/1",
@@ -149,13 +161,13 @@
       "command": "/tmp/stv/bin/python -m pytest tests.py -q -p no:cacheprovider",
       "passed": true,
       "returncode": 0,
-      "summary": "346 passed, 448 subtests passed in 2.34s"
+      "summary": "346 passed, 448 subtests passed in 3.07s"
     },
     "pristine": {
       "command": "/tmp/stv/bin/python -m pytest tests.py -q -p no:cacheprovider",
       "passed": true,
       "returncode": 0,
-      "summary": "346 passed, 448 subtests passed in 2.39s"
+      "summary": "346 passed, 448 subtests passed in 2.51s"
     }
   },
   "thresholds": {
@@ -166,8 +178,8 @@
   "upstream": "stefankoegl/python-json-patch",
   "verdict": "RETRACT",
   "verdict_reasons": [
-    "median same-tree speedup 1.0437x < retain threshold 1.30x",
-    "worst-case same-tree speedup 0.9927x < floor 1.00x"
+    "median same-tree speedup 0.5966x < retain threshold 1.30x",
+    "worst-case same-tree speedup 0.5948x < floor 1.00x"
   ],
-  "worst_case_speedup": 0.9927274661838913
+  "worst_case_speedup": 0.5947664760634421
 }

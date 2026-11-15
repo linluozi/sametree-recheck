@@ -1,16 +1,18 @@
 {
   "bench": {
+    "control_scenarios": [],
+    "control_speedups": {},
     "executable": "/tmp/stv/bin/python",
     "iters": {
       "patched": {
-        "nested_list8": 10612,
-        "small_2field": 36968,
-        "wide_24field": 18315
+        "nested_list8": 9629,
+        "small_2field": 39288,
+        "wide_24field": 19175
       },
       "pristine": {
-        "nested_list8": 7828,
-        "small_2field": 34414,
-        "wide_24field": 19362
+        "nested_list8": 7034,
+        "small_2field": 31534,
+        "wide_24field": 16960
       }
     },
     "python": "3.12.3",
@@ -18,72 +20,75 @@
     "scenarios": {
       "nested_list8": {
         "baseline": {
-          "max_seconds": 1.0760927070303419e-05,
-          "mean_seconds": 1.0728783286437344e-05,
-          "median_seconds": 1.073224488103274e-05,
-          "min_seconds": 1.0692405142746656e-05,
+          "max_seconds": 1.1073704650066846e-05,
+          "mean_seconds": 1.0967384715144226e-05,
+          "median_seconds": 1.099499120973612e-05,
+          "min_seconds": 1.0806126167845719e-05,
           "n": 7,
-          "p25_seconds": 1.0711633896300027e-05,
-          "p75_seconds": 1.0746319059189268e-05,
-          "relative_stdev": 0.002378646840301549
+          "p25_seconds": 1.0935602646627174e-05,
+          "p75_seconds": 1.1012832842553276e-05,
+          "relative_stdev": 0.008022105217890093
         },
+        "control": false,
         "patched": {
-          "max_seconds": 5.702994945692513e-06,
-          "mean_seconds": 5.6722572887865285e-06,
-          "median_seconds": 5.673999500401596e-06,
-          "min_seconds": 5.641684836198643e-06,
+          "max_seconds": 6.675086598249472e-06,
+          "mean_seconds": 5.826967981474202e-06,
+          "median_seconds": 5.636248350304376e-06,
+          "min_seconds": 5.628446770681252e-06,
           "n": 7,
-          "p25_seconds": 5.668923608071279e-06,
-          "p75_seconds": 5.674637261535193e-06,
-          "relative_stdev": 0.0031574810504715976
+          "p25_seconds": 5.634490453555634e-06,
+          "p75_seconds": 5.7900066219865255e-06,
+          "relative_stdev": 0.06610337736231514
         },
-        "speedup": 1.8914779390222243
+        "speedup": 1.9507641477761273
       },
       "small_2field": {
         "baseline": {
-          "max_seconds": 7.97257453251697e-07,
-          "mean_seconds": 7.886680323679408e-07,
-          "median_seconds": 7.900675098290662e-07,
-          "min_seconds": 7.755889267139837e-07,
+          "max_seconds": 7.934964911636193e-07,
+          "mean_seconds": 7.836943145261381e-07,
+          "median_seconds": 7.830093512392501e-07,
+          "min_seconds": 7.778070992285428e-07,
           "n": 7,
-          "p25_seconds": 7.853020793796382e-07,
-          "p75_seconds": 7.935790890107809e-07,
-          "relative_stdev": 0.009939159274629539
+          "p25_seconds": 7.817888916060475e-07,
+          "p75_seconds": 7.8398473841973e-07,
+          "relative_stdev": 0.006167745366832513
         },
+        "control": false,
         "patched": {
-          "max_seconds": 7.03561023398476e-07,
-          "mean_seconds": 6.935446486766122e-07,
-          "median_seconds": 6.938986020721777e-07,
-          "min_seconds": 6.856830712843962e-07,
+          "max_seconds": 6.918034665521695e-07,
+          "mean_seconds": 6.859741632694934e-07,
+          "median_seconds": 6.843344671596725e-07,
+          "min_seconds": 6.821852995109665e-07,
           "n": 7,
-          "p25_seconds": 6.897448978470056e-07,
-          "p75_seconds": 6.960900241436122e-07,
-          "relative_stdev": 0.008509106933725427
+          "p25_seconds": 6.837093303933196e-07,
+          "p75_seconds": 6.880386244385033e-07,
+          "relative_stdev": 0.005253618775652704
         },
-        "speedup": 1.1385921624135007
+        "speedup": 1.1441910188874853
       },
       "wide_24field": {
         "baseline": {
-          "max_seconds": 4.189734594112781e-06,
-          "mean_seconds": 4.1755928235640005e-06,
-          "median_seconds": 4.179598801103508e-06,
-          "min_seconds": 4.155466040772799e-06,
+          "max_seconds": 4.4107150488515505e-06,
+          "mean_seconds": 4.300510570735763e-06,
+          "median_seconds": 4.285037185873766e-06,
+          "min_seconds": 4.25318189026823e-06,
           "n": 7,
-          "p25_seconds": 4.166716323197103e-06,
-          "p75_seconds": 4.185458841282355e-06,
-          "relative_stdev": 0.0030925272886473273
+          "p25_seconds": 4.269223207748442e-06,
+          "p75_seconds": 4.308096727329956e-06,
+          "relative_stdev": 0.012312537887566297
         },
+        "control": false,
         "patched": {
-          "max_seconds": 3.7865937488377826e-06,
-          "mean_seconds": 3.706397289888734e-06,
-          "median_seconds": 3.7106496431675887e-06,
-          "min_seconds": 3.643626046659124e-06,
+          "max_seconds": 3.778507114622397e-06,
+          "mean_seconds": 3.7671262105209777e-06,
+          "median_seconds": 3.771452910741585e-06,
+          "min_seconds": 3.747535235645563e-06,
           "n": 7,
-          "p25_seconds": 3.6825969257935325e-06,
-          "p75_seconds": 3.71935886948479e-06,
-          "relative_stdev": 0.01245195119472174
+          "p25_seconds": 3.762028921963805e-06,
+          "p75_seconds": 3.7741651843548443e-06,
+          "relative_stdev": 0.0029799047591197183
         },
-        "speedup": 1.1263792605155798
+        "speedup": 1.1361767698781091
       }
     },
     "script": "../benches/attrs_1660_bench.py",
@@ -91,7 +96,7 @@
   },
   "case_id": "attrs-1660",
   "claim": {
-    "note": "the 1.98x headline was a cross-tree comparison (PyPI wheel vs git HEAD), not a same-tree one",
+    "note": "same-tree recheck: the headline only reproduces on the deeply nested attrs shape (1.89x); the flat/wide shapes that dominate ordinary asdict use are 1.13x, so the three-shape median is 1.14x",
     "source": "PR #1660 body table",
     "speedup": 1.98
   },
@@ -115,7 +120,7 @@
     }
   },
   "evidence_sha256": "9a2228acaf4d66de732e3efc0300056b264c61fdfe424732b4747fa521fb44d6",
-  "median_speedup": 1.1385921624135007,
+  "median_speedup": 1.1441910188874853,
   "pr": 1660,
   "replay_certificate": "1a963ed356813bddbd0612490f4053fb389efc053c1ae32851e1143d371d743f",
   "schema": "sametree-report/1",
@@ -124,13 +129,13 @@
       "command": "/tmp/stv/bin/python -m pytest tests/test_funcs.py -q -p no:cacheprovider",
       "passed": true,
       "returncode": 0,
-      "summary": "53 passed in 5.02s"
+      "summary": "53 passed in 4.96s"
     },
     "pristine": {
       "command": "/tmp/stv/bin/python -m pytest tests/test_funcs.py -q -p no:cacheprovider",
       "passed": true,
       "returncode": 0,
-      "summary": "53 passed in 5.02s"
+      "summary": "53 passed in 5.00s"
     }
   },
   "thresholds": {
@@ -141,7 +146,7 @@
   "upstream": "python-attrs/attrs",
   "verdict": "RETRACT",
   "verdict_reasons": [
-    "median same-tree speedup 1.1386x < retain threshold 1.30x"
+    "median same-tree speedup 1.1442x < retain threshold 1.30x"
   ],
-  "worst_case_speedup": 1.1263792605155798
+  "worst_case_speedup": 1.1361767698781091
 }
