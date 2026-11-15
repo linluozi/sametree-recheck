@@ -1,0 +1,27 @@
+{
+  "id": "jsonpatch-274",
+  "repo": "stefankoegl/python-json-patch",
+  "repo_url": "git@github-linluozi:stefankoegl/python-json-patch.git",
+  "base_commit": "cc1229ae0892bdad91b2b81403ebbf2529eec6db",
+  "pr": 274,
+  "patch_file": "patches/jsonpatch-274.diff",
+  "bench": {
+    "script": "benches/jsonpatch_274_bench.py",
+    "warmup": 3,
+    "reps": 7,
+    "timeout": 300,
+    "env": {"PYTHONPATH": "."}
+  },
+  "tests": {
+    "command": ["{python}", "-m", "pytest", "tests.py", "-q", "-p", "no:cacheprovider"],
+    "env": {"PYTHONPATH": "."},
+    "timeout": 420
+  },
+  "retain_median_gte": 1.3,
+  "worst_case_gte": 1.0,
+  "claim": {
+    "speedup": 1.33,
+    "source": "PR #274 body",
+    "note": "avoid the generic deepcopy and the sorted copy for move keys in from_diff"
+  }
+}
